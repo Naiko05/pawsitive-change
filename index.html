@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pawsitive Change | Support Stray Animals</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f7f3e9;
+            color: #4b3428;
+        }
+
+        header {
+            background: #6f4935;
+            color: white;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .paw {
+            font-size: 28px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 14px;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 55px 20px;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 12px;
+        }
+
+        .hero p {
+            max-width: 600px;
+            margin: auto;
+            line-height: 1.6;
+            color: #70594b;
+        }
+
+        .main {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 18px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .card h2 {
+            margin-bottom: 10px;
+        }
+
+        .amounts {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .amount {
+            border: 2px solid #d8c8b8;
+            background: white;
+            padding: 14px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            color: #6f4935;
+        }
+
+        .amount:hover,
+        .amount.selected {
+            background: #6f4935;
+            color: white;
+        }
+
+        input {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #d5c7ba;
+            border-radius: 9px;
+            margin: 8px 0 15px;
+        }
+
+        .donate-btn {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            background: #6f4935;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .donate-btn:hover {
+            background: #563728;
+        }
+
+        .impact {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .impact-box {
+            background: #eee7d9;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .impact-box strong {
+            display: block;
+            font-size: 25px;
+            margin-bottom: 5px;
+        }
+
+        .success {
+            display: none;
+            text-align: center;
+            padding: 35px;
+        }
+
+        .success-icon {
+            font-size: 55px;
+            margin-bottom: 15px;
+        }
+
+        .demo {
+            margin-top: 20px;
+            padding: 12px;
+            background: #fff3cd;
+            border-radius: 8px;
+            font-size: 13px;
+            color: #735c20;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            margin-top: 30px;
+            background: #6f4935;
+            color: white;
+            font-size: 13px;
+        }
+
+        @media (max-width: 600px) {
+            .amounts {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .impact {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            nav {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">
+        <span class="paw">🐾</span>
+        Pawsitive Change
+    </div>
+
+    <nav>
+        <a href="#about">About</a>
+        <a href="#donate">Donate</a>
+        <a href="#impact">Our Impact</a>
+        <a href="animals.html">Animal Journey</a>
+    </nav>
+</header>
+
+
+<section class="hero" id="about">
+
+    <h1>Every Paw Deserves a Meal.</h1>
+
+    <p>
+        Pawsitive Change is a donation-based crowdfunding campaign
+        created to help provide food and care for stray dogs and cats
+        in our community.
+    </p>
+
+</section>
+
+
+<div class="main">
+
+    <div class="card" id="donate">
+
+        <h2>Make a Donation 🐾</h2>
+
+        <p>
+            Your donation helps us provide food for stray animals
+            and document the animals we help.
+        </p>
+
+        <div class="amounts">
+
+            <button class="amount" onclick="selectAmount(50)">
+                ₱50
+            </button>
+
+            <button class="amount" onclick="selectAmount(100)">
+                ₱100
+            </button>
+
+            <button class="amount" onclick="selectAmount(250)">
+                ₱250
+            </button>
+
+            <button class="amount" onclick="selectAmount(500)">
+                ₱500
+            </button>
+
+        </div>
+
+        <label>Selected Donation</label>
+
+        <input
+            type="text"
+            id="selectedAmount"
+            placeholder="Choose an amount above"
+            readonly
+        >
+
+        <label>Your Name</label>
+
+        <input
+            type="text"
+            id="donorName"
+            placeholder="Enter your name"
+        >
+
+        <button class="donate-btn" onclick="donate()">
+            Donate Now
+        </button>
+
+        <div class="demo">
+            ⚠️ School Project Demo — This website does not process
+            real payments.
+        </div>
+
+    </div>
+
+
+    <div class="card success" id="success">
+
+        <div class="success-icon">🐾</div>
+
+        <h2>Thank You!</h2>
+
+        <p id="thankYouText"></p>
+
+        <br>
+
+        <p>
+            Your support can help turn kindness into a meal
+            for a stray animal.
+        </p>
+
+    </div>
+
+
+
+    <div class="card" style="text-align:center;">
+        <h2>Follow Their Journey 🐾</h2>
+        <p style="line-height:1.6; color:#70594b; margin:10px auto 20px; max-width:650px;">
+            We do more than provide meals. We document the animals we help so supporters
+            can see their journey—from being found and fed to finding a safe and loving home.
+        </p>
+        <a href="animals.html"
+           style="display:inline-block; padding:13px 22px; border-radius:10px;
+                  background:#6f4935; color:white; text-decoration:none; font-weight:bold;">
+            View Animal Journeys
+        </a>
+    </div>
+
+    <div class="card" id="impact">
+
+        <h2>Where Your Support Goes</h2>
+
+        <div class="impact">
+
+            <div class="impact-box">
+                <strong>🍚</strong>
+                Food
+            </div>
+
+            <div class="impact-box">
+                <strong>🐕</strong>
+                Feeding Activities
+            </div>
+
+            <div class="impact-box">
+                <strong>📸</strong>
+                Animal Documentation
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<footer>
+    <p>Pawsitive Change 🐾</p>
+    <p>Feed a stray. Share their story. Give them a chance.</p>
+</footer>
+
+
+<script>
+
+    let selectedAmount = 0;
+
+    function selectAmount(amount) {
+
+        selectedAmount = amount;
+
+        document.getElementById("selectedAmount").value =
+            "₱" + amount;
+
+        document.querySelectorAll(".amount").forEach(button => {
+            button.classList.remove("selected");
+        });
+
+        event.target.classList.add("selected");
+    }
+
+
+    function donate() {
+
+        const name =
+            document.getElementById("donorName").value;
+
+        if (selectedAmount === 0) {
+            alert("Please select a donation amount.");
+            return;
+        }
+
+        if (name.trim() === "") {
+            alert("Please enter your name.");
+            return;
+        }
+
+        document.getElementById("thankYouText").innerHTML =
+            "Thank you, <strong>" + name +
+            "</strong>, for your ₱" +
+            selectedAmount +
+            " donation to Pawsitive Change!";
+
+        document.getElementById("donate").style.display = "none";
+
+        document.getElementById("success").style.display = "block";
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    }
+
+</script>
+
+</body>
+</html>
