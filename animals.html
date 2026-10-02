@@ -3,131 +3,554 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Animal Journey | Pawsitive Change</title>
+
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
-        body { background:#f7f3e9; color:#4b3428; }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f7f3e9;
+            color: #4b3428;
+        }
+
         header {
-            background:#6f4935; color:white; padding:18px 8%;
-            display:flex; justify-content:space-between; align-items:center;
+            background: #6f4935;
+            color: white;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-        .logo { display:flex; align-items:center; gap:10px; font-size:22px; font-weight:bold; }
-        .paw { font-size:28px; }
-        nav a { color:white; text-decoration:none; margin-left:20px; font-size:14px; }
-        .hero { text-align:center; padding:50px 20px 30px; }
-        .hero h1 { font-size:40px; margin-bottom:12px; }
-        .hero p { max-width:680px; margin:auto; line-height:1.6; color:#70594b; }
-        .main { max-width:1050px; margin:auto; padding:20px; }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .paw {
+            font-size: 28px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 14px;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 50px 20px 30px;
+        }
+
+        .hero h1 {
+            font-size: 40px;
+            margin-bottom: 12px;
+        }
+
+        .hero p {
+            max-width: 680px;
+            margin: auto;
+            line-height: 1.6;
+            color: #70594b;
+        }
+
+        .main {
+            max-width: 1050px;
+            margin: auto;
+            padding: 20px;
+        }
+
         .animals-grid {
-            display:grid; grid-template-columns:repeat(3,1fr); gap:24px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
         }
+
         .animal-card {
-            background:white; border-radius:18px; overflow:hidden;
-            box-shadow:0 5px 20px rgba(0,0,0,.08);
+            background: white;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,.08);
         }
-        .animal-card a { color:inherit; text-decoration:none; display:block; }
+
+        .animal-card a {
+            color: inherit;
+            text-decoration: none;
+            display: block;
+        }
+
         .animal-photo {
-            width:100%; height:250px; object-fit:cover; display:block;
-            transition:transform .25s ease;
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+            transition: transform .25s ease;
         }
-        .animal-card:hover .animal-photo { transform:scale(1.03); }
-        .animal-info { padding:20px; }
-        .animal-name { font-size:23px; font-weight:bold; margin-bottom:10px; }
+
+        .animal-card:hover .animal-photo {
+            transform: scale(1.03);
+        }
+
+        .animal-info {
+            padding: 20px;
+        }
+
+        .animal-name {
+            font-size: 23px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
         .status {
-            display:inline-block; padding:6px 10px; border-radius:20px;
-            background:#eee7d9; font-size:13px; font-weight:bold; margin-bottom:12px;
+            display: inline-block;
+            padding: 6px 10px;
+            border-radius: 20px;
+            background: #d9ead3;
+            color: #38761d;
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 12px;
         }
-        .place { color:#70594b; line-height:1.5; }
-        .place strong { color:#4b3428; }
+
+        .place {
+            color: #70594b;
+            line-height: 1.5;
+        }
+
+        .place strong {
+            color: #4b3428;
+        }
+
         .hint {
-            margin:25px 0; text-align:center; padding:15px; background:#fff3cd;
-            border-radius:10px; color:#735c20; font-size:14px;
+            margin: 25px 0;
+            text-align: center;
+            padding: 15px;
+            background: #fff3cd;
+            border-radius: 10px;
+            color: #735c20;
+            font-size: 14px;
         }
+
         .back {
-            display:inline-block; margin-top:25px; padding:12px 20px;
-            background:#6f4935; color:white; text-decoration:none; border-radius:10px;
-            font-weight:bold;
+            display: inline-block;
+            margin-top: 25px;
+            padding: 12px 20px;
+            background: #6f4935;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: bold;
         }
-        footer { text-align:center; padding:30px; margin-top:30px; background:#6f4935; color:white; font-size:13px; }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            margin-top: 30px;
+            background: #6f4935;
+            color: white;
+            font-size: 13px;
+        }
+
         @media(max-width:750px) {
-            .animals-grid { grid-template-columns:1fr; }
-            .hero h1 { font-size:32px; }
-            nav { display:none; }
+            .animals-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            nav {
+                display: none;
+            }
         }
     </style>
 </head>
+
 <body>
 
 <header>
-    <div class="logo"><span class="paw">🐾</span> Pawsitive Change</div>
+    <div class="logo">
+        <span class="paw">🐾</span> Pawsitive Change
+    </div>
+
     <nav>
         <a href="index.html">Home</a>
         <a href="index.html#donate">Donate</a>
     </nav>
 </header>
 
+
 <section class="hero">
+
     <h1>Animal Journey 🐾</h1>
+
     <p>
         We don't only feed stray animals—we follow and document their journey.
         Click an animal's photo to see pictures, videos, feeding updates, and their story.
     </p>
+
 </section>
 
+
 <main class="main">
+
     <div class="animals-grid">
 
+
+        <!-- BRUNO -->
         <article class="animal-card">
-            <a href="animals/max/">
-                <img class="animal-photo"
-                     src="https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=900&q=80"
-                     alt="Max the dog">
+
+            <a href="animals/bruno/">
+
+                <img
+                    class="animal-photo"
+                    src="animals/bruno/Bruno_p1.jpg"
+                    alt="Bruno"
+                >
+
                 <div class="animal-info">
-                    <div class="animal-name">Max</div>
-                    <span class="status">Stray</span>
-                    <p class="place"><strong>Found:</strong> Lipa City, Batangas</p>
+
+                    <div class="animal-name">
+                        Bruno
+                    </div>
+
+                    <span class="status">
+                        Adopted
+                    </span>
+
+                    <p class="place">
+                        <strong>Found:</strong> Anilao-Labac, Lipa City
+                    </p>
+
                 </div>
+
             </a>
+
         </article>
 
+
+        <!-- GABBY -->
         <article class="animal-card">
-            <a href="animals/bella/">
-                <img class="animal-photo"
-                     src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=900&q=80"
-                     alt="Bella the dog">
+
+            <a href="animals/gabby/">
+
+                <img
+                    class="animal-photo"
+                    src="animals/gabby/Gabby_p1.jpg"
+                    alt="Gabby"
+                >
+
                 <div class="animal-info">
-                    <div class="animal-name">Bella</div>
-                    <span class="status">Adopted</span>
-                    <p class="place"><strong>Found:</strong> Malvar, Batangas</p>
+
+                    <div class="animal-name">
+                        Gabby
+                    </div>
+
+                    <span class="status">
+                        Adopted
+                    </span>
+
+                    <p class="place">
+                        <strong>Found:</strong> Banay-banay, Lipa City
+                    </p>
+
                 </div>
+
             </a>
+
         </article>
 
+
+        <!-- LEO -->
         <article class="animal-card">
-            <a href="animals/rocky/">
-                <img class="animal-photo"
-                     src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&w=900&q=80"
-                     alt="Rocky the dog">
+
+            <a href="animals/leo/">
+
+                <img
+                    class="animal-photo"
+                    src="animals/leo/Leo_p1.jpg"
+                    alt="Leo"
+                >
+
                 <div class="animal-info">
-                    <div class="animal-name">Rocky</div>
-                    <span class="status">Stray</span>
-                    <p class="place"><strong>Found:</strong> Tanauan City, Batangas</p>
+
+                    <div class="animal-name">
+                        Leo
+                    </div>
+
+                    <span class="status">
+                        Adopted
+                    </span>
+
+                    <p class="place">
+                        <strong>Found:</strong> Banay-banay, Lipa City
+                    </p>
+
                 </div>
+
             </a>
+
         </article>
+
+
+        <!-- LION -->
+        <article class="animal-card">
+
+            <a href="animals/lion/">
+
+                <img
+                    class="animal-photo"
+                    src="animals/lion/Lion_p1.jpg"
+                    alt="Lion"
+                >
+
+                <div class="animal-info">
+
+                    <div class="animal-name">
+                        Lion
+                    </div>
+
+                    <span class="status">
+                        Adopted
+                    </span>
+
+                    <p class="place">
+                        <strong>Found:</strong> Banay-banay, Lipa City
+                    </p>
+
+                </div>
+
+            </a>
+
+        </article>
+
+
+        <!-- LUCY -->
+        <article class="animal-card">
+
+            <a href="animals/lucy/">
+
+                <img
+                    class="animal-photo"
+                    src="animals/lucy/Lucy_p1.HEIC"
+                    alt="Lucy"
+                >
+
+                <div class="animal-info">
+
+                    <div class="animal-name">
+                        Lucy
+                    </div>
+
+                    <span class="status">
+                        Stray
+                    </span>
+
+                    <p class="place">
+                        <strong>Found:</strong> Lipa City, Cathedral
+                    </p>
+
+                </div>
+
+            </a>
+
+        </article>
+
+
+        <!-- MASHA -->
+        <article class="animal-card">
+
+            <a href="animals/masha/">
+
+                <img
+                    class="animal-photo"
+                    src="animals/masha/Masha_p1.jpg"
+                    alt="Masha"
+                >
+
+                <div class="animal-info">
+
+                    <div class="animal-name">
+                        Masha
+                    </div>
+
+                    <span class="status">
+                        Adopted
+                    </span>
+
+                    <p class="place">
+                        <strong>Found:</strong> Banay-banay, Lipa City
+                    </p>
+
+                </div>
+
+            </a>
+
+        </article>
+
+
+        <!-- NALA -->
+        <article class="animal-card">
+
+            <a href="animals/nala/">
+
+                <img
+                    class="animal-photo"
+                    src="animals/nala/Nala_p1.jpg"
+                    alt="Nala"
+                >
+
+                <div class="animal-info">
+
+                    <div class="animal-name">
+                        Nala
+                    </div>
+
+                    <span class="status">
+                        Adopted
+                    </span>
+
+                    <p class="place">
+                        <strong>Found:</strong> Banay-banay, Lipa City
+                    </p>
+
+                </div>
+
+            </a>
+
+        </article>
+
+
+        <!-- NAMI -->
+        <article class="animal-card">
+
+            <a href="animals/nami/">
+
+                <img
+                    class="animal-photo"
+                    src="animals/nami/Nami_p1.jpg"
+                    alt="Nami"
+                >
+
+                <div class="animal-info">
+
+                    <div class="animal-name">
+                        Nami
+                    </div>
+
+                    <span class="status">
+                        Adopted
+                    </span>
+
+                    <p class="place">
+                        <strong>Found:</strong> Banay-banay, Lipa City
+                    </p>
+
+                </div>
+
+            </a>
+
+        </article>
+
+
+        <!-- POOBERT -->
+        <article class="animal-card">
+
+            <a href="animals/poobert/">
+
+                <img
+                    class="animal-photo"
+                    src="animals/poobert/Poobert_p1.jpg"
+                    alt="Poobert"
+                >
+
+                <div class="animal-info">
+
+                    <div class="animal-name">
+                        Poobert
+                    </div>
+
+                    <span class="status">
+                        Adopted
+                    </span>
+
+                    <p class="place">
+                        <strong>Found:</strong> Rosario
+                    </p>
+
+                </div>
+
+            </a>
+
+        </article>
+
+
+        <!-- SHURI -->
+        <article class="animal-card">
+
+            <a href="animals/shuri/">
+
+                <img
+                    class="animal-photo"
+                    src="animals/shuri/Shuri_p1.jpg"
+                    alt="Shuri"
+                >
+
+                <div class="animal-info">
+
+                    <div class="animal-name">
+                        Shuri
+                    </div>
+
+                    <span class="status">
+                        Adopted
+                    </span>
+
+                    <p class="place">
+                        <strong>Found:</strong> Banay-banay, Lipa City
+                    </p>
+
+                </div>
+
+            </a>
+
+        </article>
+
 
     </div>
+
 
     <div class="hint">
-        📸 Click an animal's picture to open its journey folder.
+        📸 Click an animal's picture to open their journey.
     </div>
 
-    <a class="back" href="index.html">← Back to Pawsitive Change</a>
+
+    <a class="back" href="index.html">
+        ← Back to Pawsitive Change
+    </a>
+
 </main>
 
+
 <footer>
+
     <p>Pawsitive Change 🐾</p>
-    <p>Feed a stray. Share their story. Give them a chance.</p>
+
+    <p>
+        Feed a stray. Share their story. Give them a chance.
+    </p>
+
 </footer>
 
 </body>
