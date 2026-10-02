@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Bella's Journey | Pawsitive Change</title>
+    <title>Bruno's Journey | Pawsitive Change</title>
 
     <style>
         * {
@@ -115,7 +116,7 @@
 
         .gallery {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: 1fr;
             gap: 20px;
         }
 
@@ -124,12 +125,13 @@
             border-radius: 16px;
             overflow: hidden;
             box-shadow: 0 5px 20px rgba(0,0,0,.07);
+            max-width: 600px;
         }
 
-        .media img,
-        .media video {
+        .media img {
             width: 100%;
-            height: 280px;
+            height: auto;
+            max-height: 500px;
             object-fit: cover;
             display: block;
         }
@@ -166,8 +168,7 @@
 
         @media(max-width:700px) {
 
-            .profile,
-            .gallery {
+            .profile {
                 grid-template-columns: 1fr;
             }
 
@@ -177,6 +178,10 @@
 
             nav {
                 display: none;
+            }
+
+            .media {
+                max-width: 100%;
             }
         }
     </style>
@@ -211,36 +216,36 @@
     <section class="profile">
 
         <img
-            src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=900&q=80"
-            alt="Bella"
+            src="Bruno_p1.jpg"
+            alt="Bruno"
         >
 
         <div>
 
-            <h1>Bella</h1>
+            <h1>Bruno</h1>
 
             <span class="status">
-                Adopted
+                Animal Journey
             </span>
 
             <div class="details">
 
                 <p>
                     <strong>Found:</strong>
-                    Malvar, Batangas
+                    Anilao-Labac, Lipa City
                 </p>
 
                 <p>
                     <strong>Journey:</strong>
-                    Feeding, care, and adoption
+                    Care, support, and a chance for a better life
                 </p>
 
             </div>
 
             <p class="story">
-                Bella's journey shows how regular care and community
-                support can become part of an animal's path toward
-                adoption and a safer home.
+                Bruno's journey is part of Pawsitive Change's effort
+                to give animals the care, attention, and support they
+                need while working toward a safer and better future.
             </p>
 
         </div>
@@ -248,99 +253,34 @@
     </section>
 
 
-    <h2>Bella's Journey 📸🎥</h2>
+    <h2>Bruno's Journey 📸</h2>
 
 
     <div class="gallery">
 
-
         <article class="media">
 
             <img
-                src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=900&q=80"
-                alt="Bella feeding"
+                src="Bruno_p1.jpg"
+                alt="Bruno"
             >
 
             <div class="caption">
 
-                <strong>Feeding Day</strong>
+                <strong>Bruno</strong>
 
-                A record of Bella receiving a meal
-                through Pawsitive Change.
-
-            </div>
-
-        </article>
-
-
-        <article class="media">
-
-            <video controls>
-
-                <source
-                    src="../../assets/sample-animal-video.mp4"
-                    type="video/mp4"
-                >
-
-                Your browser does not support video playback.
-
-            </video>
-
-            <div class="caption">
-
-                <strong>Journey Video</strong>
-
-                A video documenting Bella's journey.
+                A photo of Bruno from Anilao-Labac, Lipa City.
 
             </div>
 
         </article>
-
-
-        <article class="media">
-
-            <img
-                src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=900&q=80"
-                alt="Bella progress"
-            >
-
-            <div class="caption">
-
-                <strong>Progress Update</strong>
-
-                An update showing Bella's progress
-                toward finding a safe home.
-
-            </div>
-
-        </article>
-
-
-        <article class="media">
-
-            <img
-                src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=900&q=80"
-                alt="Bella adopted"
-            >
-
-            <div class="caption">
-
-                <strong>Adoption Update</strong>
-
-                Bella has reached the adopted stage
-                of her journey.
-
-            </div>
-
-        </article>
-
 
     </div>
 
 
     <div class="note">
 
-        💛 Bella's journey is a reminder that every animal
+        💛 Bruno's story is a reminder that every animal
         deserves care, food, safety, and a chance at a loving home.
 
     </div>
@@ -360,3 +300,4 @@
 
 </body>
 </html>
+```
