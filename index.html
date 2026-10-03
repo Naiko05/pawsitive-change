@@ -47,6 +47,10 @@
             font-size: 14px;
         }
 
+        nav a:hover {
+            text-decoration: underline;
+        }
+
         .hero {
             text-align: center;
             padding: 55px 20px;
@@ -169,16 +173,71 @@
             color: #735c20;
         }
 
+        /* CAMPAIGN VIDEO */
+
+        .campaign-video {
+            padding: 5px 0 30px;
+        }
+
+        .campaign-content {
+            background: white;
+            border-radius: 18px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+
+        .campaign-content h2 {
+            margin-bottom: 10px;
+        }
+
+        .campaign-content p {
+            max-width: 650px;
+            margin: 0 auto 22px;
+            line-height: 1.6;
+            color: #70594b;
+        }
+
+        .video-container {
+            width: 100%;
+            overflow: hidden;
+            border-radius: 14px;
+            background: #000;
+        }
+
+        .video-container iframe {
+            width: 100%;
+            height: 500px;
+            border: none;
+            display: block;
+        }
+
+        .watch-video {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 13px 22px;
+            background: #6f4935;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+
+        .watch-video:hover {
+            background: #563728;
+        }
+
         footer {
             text-align: center;
             padding: 30px;
-            margin-top: 30px;
+            margin-top: 0;
             background: #6f4935;
             color: white;
             font-size: 13px;
         }
 
         @media (max-width: 600px) {
+
             .amounts {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -194,6 +253,14 @@
             nav {
                 display: none;
             }
+
+            .campaign-content {
+                padding: 25px 18px;
+            }
+
+            .video-container iframe {
+                height: 300px;
+            }
         }
     </style>
 </head>
@@ -201,6 +268,7 @@
 <body>
 
 <header>
+
     <div class="logo">
         <span class="paw">🐾</span>
         Pawsitive Change
@@ -212,6 +280,7 @@
         <a href="#impact">Our Impact</a>
         <a href="animals.html">Animal Journey</a>
     </nav>
+
 </header>
 
 
@@ -229,6 +298,9 @@
 
 
 <div class="main">
+
+
+    <!-- DONATION SECTION -->
 
     <div class="card" id="donate">
 
@@ -259,6 +331,7 @@
 
         </div>
 
+
         <label>Selected Donation</label>
 
         <input
@@ -268,6 +341,7 @@
             readonly
         >
 
+
         <label>Your Name</label>
 
         <input
@@ -276,15 +350,19 @@
             placeholder="Enter your name"
         >
 
+
         <button class="donate-btn" onclick="donate()">
             Donate Now
         </button>
+
 
         <div class="demo">
         </div>
 
     </div>
 
+
+    <!-- SUCCESS MESSAGE -->
 
     <div class="card success" id="success">
 
@@ -304,19 +382,31 @@
     </div>
 
 
+    <!-- ANIMAL JOURNEY -->
 
     <div class="card" style="text-align:center;">
+
         <h2>Follow Their Journey 🐾</h2>
+
         <p style="line-height:1.6; color:#70594b; margin:10px auto 20px; max-width:650px;">
+
             We do more than provide meals. We document the animals we help so supporters
             can see their journey—from being found and fed to finding a safe and loving home.
+
         </p>
-        <a href="animals.html"
-           style="display:inline-block; padding:13px 22px; border-radius:10px;
-                  background:#6f4935; color:white; text-decoration:none; font-weight:bold;">
+
+        <a
+            href="animals.html"
+            style="display:inline-block; padding:13px 22px; border-radius:10px;
+                   background:#6f4935; color:white; text-decoration:none; font-weight:bold;"
+        >
             View Animal Journeys
         </a>
+
     </div>
+
+
+    <!-- WHERE YOUR SUPPORT GOES -->
 
     <div class="card" id="impact">
 
@@ -343,18 +433,63 @@
 
     </div>
 
+
+    <!-- CAMPAIGN VIDEO -->
+
+    <section class="campaign-video">
+
+        <div class="campaign-content">
+
+            <h2>Our Campaign Video 🎥</h2>
+
+            <p>
+                Learn more about Pawsitive Change, our mission,
+                and why every stray animal deserves care and compassion.
+            </p>
+
+
+            <div class="video-container">
+
+                <iframe
+                    src="https://drive.google.com/file/d/175zu7leujxT4uy-HDbn-lwieXeu1l2ue/preview"
+                    allow="autoplay"
+                    allowfullscreen>
+                </iframe>
+
+            </div>
+
+
+            <a
+                href="https://drive.google.com/file/d/175zu7leujxT4uy-HDbn-lwieXeu1l2ue/view?usp=sharing"
+                target="_blank"
+                class="watch-video"
+            >
+                ▶ Watch Campaign Video
+            </a>
+
+        </div>
+
+    </section>
+
+
 </div>
 
 
+<!-- FOOTER -->
+
 <footer>
+
     <p>Pawsitive Change 🐾</p>
+
     <p>Feed a stray. Share their story. Give them a chance.</p>
+
 </footer>
 
 
 <script>
 
     let selectedAmount = 0;
+
 
     function selectAmount(amount) {
 
@@ -368,6 +503,7 @@
         });
 
         event.target.classList.add("selected");
+
     }
 
 
@@ -376,15 +512,22 @@
         const name =
             document.getElementById("donorName").value;
 
+
         if (selectedAmount === 0) {
+
             alert("Please select a donation amount.");
+
             return;
         }
 
+
         if (name.trim() === "") {
+
             alert("Please enter your name.");
+
             return;
         }
+
 
         document.getElementById("thankYouText").innerHTML =
             "Thank you, <strong>" + name +
@@ -392,14 +535,20 @@
             selectedAmount +
             " donation to Pawsitive Change!";
 
+
         document.getElementById("donate").style.display = "none";
 
         document.getElementById("success").style.display = "block";
 
+
         window.scrollTo({
+
             top: 0,
+
             behavior: "smooth"
+
         });
+
     }
 
 </script>
