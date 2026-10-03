@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,6 +20,7 @@
             color: #4b3428;
         }
 
+        /* HEADER */
         header {
             background: #6f4935;
             color: white;
@@ -45,42 +47,57 @@
             text-decoration: none;
             margin-left: 20px;
             font-size: 14px;
+            transition: opacity 0.2s ease;
         }
 
+        nav a:hover {
+            opacity: 0.75;
+        }
+
+        /* HERO */
         .hero {
             text-align: center;
-            padding: 50px 20px 30px;
+            padding: 55px 20px 35px;
         }
 
         .hero h1 {
-            font-size: 40px;
-            margin-bottom: 12px;
+            font-size: 42px;
+            margin-bottom: 15px;
         }
 
         .hero p {
-            max-width: 680px;
+            max-width: 700px;
             margin: auto;
-            line-height: 1.6;
+            line-height: 1.7;
             color: #70594b;
+            font-size: 16px;
         }
 
+        /* MAIN */
         .main {
-            max-width: 1050px;
+            max-width: 1100px;
             margin: auto;
             padding: 20px;
         }
 
+        /* ANIMAL GRID */
         .animals-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
+            gap: 25px;
         }
 
         .animal-card {
             background: white;
-            border-radius: 18px;
+            border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 5px 20px rgba(0,0,0,.08);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .animal-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,.12);
         }
 
         .animal-card a {
@@ -94,7 +111,7 @@
             height: 250px;
             object-fit: cover;
             display: block;
-            transition: transform .25s ease;
+            transition: transform .3s ease;
         }
 
         .animal-card:hover .animal-photo {
@@ -113,7 +130,7 @@
 
         .status {
             display: inline-block;
-            padding: 6px 10px;
+            padding: 6px 11px;
             border-radius: 20px;
             background: #d9ead3;
             color: #38761d;
@@ -125,53 +142,159 @@
         .place {
             color: #70594b;
             line-height: 1.5;
+            font-size: 15px;
         }
 
         .place strong {
             color: #4b3428;
         }
 
+        /* HINT */
         .hint {
-            margin: 25px 0;
+            margin: 30px 0;
             text-align: center;
-            padding: 15px;
+            padding: 16px;
             background: #fff3cd;
-            border-radius: 10px;
+            border-radius: 12px;
             color: #735c20;
             font-size: 14px;
         }
 
+        /* BACK BUTTON */
         .back {
             display: inline-block;
-            margin-top: 25px;
+            margin-top: 5px;
             padding: 12px 20px;
             background: #6f4935;
             color: white;
             text-decoration: none;
             border-radius: 10px;
             font-weight: bold;
+            transition: background 0.2s ease;
         }
 
+        .back:hover {
+            background: #4b3428;
+        }
+
+        /* CAMPAIGN VIDEO */
+        .campaign-section {
+            margin-top: 60px;
+            padding: 40px 30px;
+            background: white;
+            border-radius: 22px;
+            box-shadow: 0 5px 20px rgba(0,0,0,.08);
+            text-align: center;
+        }
+
+        .campaign-section h2 {
+            font-size: 32px;
+            margin-bottom: 12px;
+            color: #4b3428;
+        }
+
+        .campaign-section p {
+            max-width: 700px;
+            margin: 0 auto 25px;
+            color: #70594b;
+            line-height: 1.7;
+        }
+
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 850px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 18px;
+            background: #000;
+            box-shadow: 0 5px 20px rgba(0,0,0,.12);
+        }
+
+        .video-wrapper iframe {
+            width: 100%;
+            height: 480px;
+            border: none;
+            display: block;
+        }
+
+        .watch-button {
+            display: inline-block;
+            margin-top: 22px;
+            padding: 13px 22px;
+            background: #6f4935;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: bold;
+            transition: background 0.2s ease;
+        }
+
+        .watch-button:hover {
+            background: #4b3428;
+        }
+
+        /* FOOTER */
         footer {
             text-align: center;
-            padding: 30px;
-            margin-top: 30px;
+            padding: 35px 20px;
+            margin-top: 50px;
             background: #6f4935;
             color: white;
             font-size: 13px;
         }
 
-        @media(max-width:750px) {
+        footer p + p {
+            margin-top: 7px;
+            opacity: 0.9;
+        }
+
+        /* MOBILE */
+        @media(max-width: 850px) {
             .animals-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .video-wrapper iframe {
+                height: 400px;
+            }
+        }
+
+        @media(max-width: 600px) {
+            header {
+                padding: 16px 20px;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .hero {
+                padding: 40px 20px 25px;
             }
 
             .hero h1 {
                 font-size: 32px;
             }
 
-            nav {
-                display: none;
+            .animals-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .animal-photo {
+                height: 260px;
+            }
+
+            .campaign-section {
+                padding: 30px 18px;
+            }
+
+            .campaign-section h2 {
+                font-size: 27px;
+            }
+
+            .video-wrapper iframe {
+                height: 300px;
             }
         }
     </style>
@@ -179,379 +302,402 @@
 
 <body>
 
-<header>
-    <div class="logo">
-        <span class="paw">🐾</span> Pawsitive Change
-    </div>
+    <!-- HEADER -->
+    <header>
+        <div class="logo">
+            <span class="paw">🐾</span>
+            Pawsitive Change
+        </div>
 
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="index.html#donate">Donate</a>
-    </nav>
-</header>
-
-
-<section class="hero">
-
-    <h1>Animal Journey 🐾</h1>
-
-    <p>
-        We don't only feed stray animals—we follow and document their journey.
-        Click an animal's photo to see pictures, videos, feeding updates, and their story.
-    </p>
-
-</section>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="index.html#donate">Donate</a>
+        </nav>
+    </header>
 
 
-<main class="main">
+    <!-- HERO -->
+    <section class="hero">
 
-    <div class="animals-grid">
+        <h1>Animal Journey 🐾</h1>
+
+        <p>
+            We don't only feed stray animals—we follow and document their journey.
+            Click an animal's photo to see their pictures, videos, feeding updates,
+            and story.
+        </p>
+
+    </section>
 
 
-        <!-- BRUNO -->
-        <article class="animal-card">
+    <!-- MAIN CONTENT -->
+    <main class="main">
 
-            <a href="animals/bruno/">
+        <!-- ANIMAL CARDS -->
+        <div class="animals-grid">
 
-                <img
-                    class="animal-photo"
-                    src="animals/bruno/Bruno_p1.jpg"
-                    alt="Bruno"
-                >
 
-                <div class="animal-info">
+            <!-- BRUNO -->
+            <article class="animal-card">
+                <a href="animals/bruno/">
 
-                    <div class="animal-name">
-                        Bruno
+                    <img
+                        class="animal-photo"
+                        src="animals/bruno/Bruno_p1.jpg"
+                        alt="Bruno"
+                    >
+
+                    <div class="animal-info">
+
+                        <div class="animal-name">
+                            Bruno
+                        </div>
+
+                        <span class="status">
+                            Adopted
+                        </span>
+
+                        <p class="place">
+                            <strong>Found:</strong> Anilao-Labac, Lipa City
+                        </p>
+
                     </div>
 
-                    <span class="status">
-                        Adopted
-                    </span>
-
-                    <p class="place">
-                        <strong>Found:</strong> Anilao-Labac, Lipa City
-                    </p>
-
-                </div>
-
-            </a>
-
-        </article>
+                </a>
+            </article>
 
 
-        <!-- GABBY -->
-        <article class="animal-card">
+            <!-- GABBY -->
+            <article class="animal-card">
+                <a href="animals/gabby/">
 
-            <a href="animals/gabby/">
+                    <img
+                        class="animal-photo"
+                        src="animals/gabby/Gabby_p1.jpg"
+                        alt="Gabby"
+                    >
 
-                <img
-                    class="animal-photo"
-                    src="animals/gabby/Gabby_p1.jpg"
-                    alt="Gabby"
-                >
+                    <div class="animal-info">
 
-                <div class="animal-info">
+                        <div class="animal-name">
+                            Gabby
+                        </div>
 
-                    <div class="animal-name">
-                        Gabby
+                        <span class="status">
+                            Adopted
+                        </span>
+
+                        <p class="place">
+                            <strong>Found:</strong> Banay-banay, Lipa City
+                        </p>
+
                     </div>
 
-                    <span class="status">
-                        Adopted
-                    </span>
-
-                    <p class="place">
-                        <strong>Found:</strong> Banay-banay, Lipa City
-                    </p>
-
-                </div>
-
-            </a>
-
-        </article>
+                </a>
+            </article>
 
 
-        <!-- LEO -->
-        <article class="animal-card">
+            <!-- LEO -->
+            <article class="animal-card">
+                <a href="animals/leo/">
 
-            <a href="animals/leo/">
+                    <img
+                        class="animal-photo"
+                        src="animals/leo/Leo_p1.jpg"
+                        alt="Leo"
+                    >
 
-                <img
-                    class="animal-photo"
-                    src="animals/leo/Leo_p1.jpg"
-                    alt="Leo"
-                >
+                    <div class="animal-info">
 
-                <div class="animal-info">
+                        <div class="animal-name">
+                            Leo
+                        </div>
 
-                    <div class="animal-name">
-                        Leo
+                        <span class="status">
+                            Adopted
+                        </span>
+
+                        <p class="place">
+                            <strong>Found:</strong> Banay-banay, Lipa City
+                        </p>
+
                     </div>
 
-                    <span class="status">
-                        Adopted
-                    </span>
-
-                    <p class="place">
-                        <strong>Found:</strong> Banay-banay, Lipa City
-                    </p>
-
-                </div>
-
-            </a>
-
-        </article>
+                </a>
+            </article>
 
 
-        <!-- LION -->
-        <article class="animal-card">
+            <!-- LION -->
+            <article class="animal-card">
+                <a href="animals/lion/">
 
-            <a href="animals/lion/">
+                    <img
+                        class="animal-photo"
+                        src="animals/lion/Lion_p1.jpg"
+                        alt="Lion"
+                    >
 
-                <img
-                    class="animal-photo"
-                    src="animals/lion/Lion_p1.jpg"
-                    alt="Lion"
-                >
+                    <div class="animal-info">
 
-                <div class="animal-info">
+                        <div class="animal-name">
+                            Lion
+                        </div>
 
-                    <div class="animal-name">
-                        Lion
+                        <span class="status">
+                            Adopted
+                        </span>
+
+                        <p class="place">
+                            <strong>Found:</strong> Banay-banay, Lipa City
+                        </p>
+
                     </div>
 
-                    <span class="status">
-                        Adopted
-                    </span>
-
-                    <p class="place">
-                        <strong>Found:</strong> Banay-banay, Lipa City
-                    </p>
-
-                </div>
-
-            </a>
-
-        </article>
+                </a>
+            </article>
 
 
-        <!-- LUCY -->
-        <article class="animal-card">
+            <!-- LUCY -->
+            <article class="animal-card">
+                <a href="animals/lucy/">
 
-            <a href="animals/lucy/">
+                    <img
+                        class="animal-photo"
+                        src="animals/lucy/Lucy_p1.jpg"
+                        alt="Lucy"
+                    >
 
-                <img
-                    class="animal-photo"
-                    src="animals/lucy/Lucy_p1.jpg"
-                    alt="Lucy"
-                >
+                    <div class="animal-info">
 
-                <div class="animal-info">
+                        <div class="animal-name">
+                            Lucy
+                        </div>
 
-                    <div class="animal-name">
-                        Lucy
+                        <span class="status">
+                            Stray
+                        </span>
+
+                        <p class="place">
+                            <strong>Found:</strong> Lipa City, Cathedral
+                        </p>
+
                     </div>
 
-                    <span class="status">
-                        Stray
-                    </span>
-
-                    <p class="place">
-                        <strong>Found:</strong> Lipa City, Cathedral
-                    </p>
-
-                </div>
-
-            </a>
-
-        </article>
+                </a>
+            </article>
 
 
-        <!-- MASHA -->
-        <article class="animal-card">
+            <!-- MASHA -->
+            <article class="animal-card">
+                <a href="animals/masha/">
 
-            <a href="animals/masha/">
+                    <img
+                        class="animal-photo"
+                        src="animals/masha/Masha_p1.jpg"
+                        alt="Masha"
+                    >
 
-                <img
-                    class="animal-photo"
-                    src="animals/masha/Masha_p1.jpg"
-                    alt="Masha"
-                >
+                    <div class="animal-info">
 
-                <div class="animal-info">
+                        <div class="animal-name">
+                            Masha
+                        </div>
 
-                    <div class="animal-name">
-                        Masha
+                        <span class="status">
+                            Adopted
+                        </span>
+
+                        <p class="place">
+                            <strong>Found:</strong> Banay-banay, Lipa City
+                        </p>
+
                     </div>
 
-                    <span class="status">
-                        Adopted
-                    </span>
-
-                    <p class="place">
-                        <strong>Found:</strong> Banay-banay, Lipa City
-                    </p>
-
-                </div>
-
-            </a>
-
-        </article>
+                </a>
+            </article>
 
 
-        <!-- NALA -->
-        <article class="animal-card">
+            <!-- NALA -->
+            <article class="animal-card">
+                <a href="animals/nala/">
 
-            <a href="animals/nala/">
+                    <img
+                        class="animal-photo"
+                        src="animals/nala/Nala_p1.jpg"
+                        alt="Nala"
+                    >
 
-                <img
-                    class="animal-photo"
-                    src="animals/nala/Nala_p1.jpg"
-                    alt="Nala"
-                >
+                    <div class="animal-info">
 
-                <div class="animal-info">
+                        <div class="animal-name">
+                            Nala
+                        </div>
 
-                    <div class="animal-name">
-                        Nala
+                        <span class="status">
+                            Adopted
+                        </span>
+
+                        <p class="place">
+                            <strong>Found:</strong> Banay-banay, Lipa City
+                        </p>
+
                     </div>
 
-                    <span class="status">
-                        Adopted
-                    </span>
-
-                    <p class="place">
-                        <strong>Found:</strong> Banay-banay, Lipa City
-                    </p>
-
-                </div>
-
-            </a>
-
-        </article>
+                </a>
+            </article>
 
 
-        <!-- NAMI -->
-        <article class="animal-card">
+            <!-- NAMI -->
+            <article class="animal-card">
+                <a href="animals/nami/">
 
-            <a href="animals/nami/">
+                    <img
+                        class="animal-photo"
+                        src="animals/nami/Nami_p1.jpg"
+                        alt="Nami"
+                    >
 
-                <img
-                    class="animal-photo"
-                    src="animals/nami/nami_p1.jpg"
-                    alt="Nami"
-                >
+                    <div class="animal-info">
 
-                <div class="animal-info">
+                        <div class="animal-name">
+                            Nami
+                        </div>
 
-                    <div class="animal-name">
-                        Nami
+                        <span class="status">
+                            Adopted
+                        </span>
+
+                        <p class="place">
+                            <strong>Found:</strong> Banay-banay, Lipa City
+                        </p>
+
                     </div>
 
-                    <span class="status">
-                        Adopted
-                    </span>
-
-                    <p class="place">
-                        <strong>Found:</strong> Banay-banay, Lipa City
-                    </p>
-
-                </div>
-
-            </a>
-
-        </article>
+                </a>
+            </article>
 
 
-        <!-- POOBERT -->
-        <article class="animal-card">
+            <!-- POOBERT -->
+            <article class="animal-card">
+                <a href="animals/poobert/">
 
-            <a href="animals/poobert/">
+                    <img
+                        class="animal-photo"
+                        src="animals/poobert/Poobert_p1.jpg"
+                        alt="Poobert"
+                    >
 
-                <img
-                    class="animal-photo"
-                    src="animals/poobert/Poobert_p1.jpg"
-                    alt="Poobert"
-                >
+                    <div class="animal-info">
 
-                <div class="animal-info">
+                        <div class="animal-name">
+                            Poobert
+                        </div>
 
-                    <div class="animal-name">
-                        Poobert
+                        <span class="status">
+                            Adopted
+                        </span>
+
+                        <p class="place">
+                            <strong>Found:</strong> Rosario
+                        </p>
+
                     </div>
 
-                    <span class="status">
-                        Adopted
-                    </span>
-
-                    <p class="place">
-                        <strong>Found:</strong> Rosario
-                    </p>
-
-                </div>
-
-            </a>
-
-        </article>
+                </a>
+            </article>
 
 
-        <!-- SHURI -->
-        <article class="animal-card">
+            <!-- SHURI -->
+            <article class="animal-card">
+                <a href="animals/shuri/">
 
-            <a href="animals/shuri/">
+                    <img
+                        class="animal-photo"
+                        src="animals/shuri/Shuri_p1.jpg"
+                        alt="Shuri"
+                    >
 
-                <img
-                    class="animal-photo"
-                    src="animals/shuri/Shuri_p1.jpg"
-                    alt="Shuri"
-                >
+                    <div class="animal-info">
 
-                <div class="animal-info">
+                        <div class="animal-name">
+                            Shuri
+                        </div>
 
-                    <div class="animal-name">
-                        Shuri
+                        <span class="status">
+                            Adopted
+                        </span>
+
+                        <p class="place">
+                            <strong>Found:</strong> Banay-banay, Lipa City
+                        </p>
+
                     </div>
 
-                    <span class="status">
-                        Adopted
-                    </span>
+                </a>
+            </article>
 
-                    <p class="place">
-                        <strong>Found:</strong> Banay-banay, Lipa City
-                    </p>
 
-                </div>
+        </div>
 
+
+        <!-- HINT -->
+        <div class="hint">
+            📸 Click an animal's picture to open their journey.
+        </div>
+
+
+        <!-- BACK BUTTON -->
+        <a class="back" href="index.html">
+            ← Back to Pawsitive Change
+        </a>
+
+
+        <!-- CAMPAIGN VIDEO -->
+        <section class="campaign-section">
+
+            <h2>Our Campaign Video 🎥</h2>
+
+            <p>
+                Learn more about Pawsitive Change, our mission, and why
+                helping stray animals matters.
+            </p>
+
+            <div class="video-wrapper">
+
+                <iframe
+                    src="https://drive.google.com/file/d/175zu7leujxT4uy-HDbn-lwieXeu1l2ue/preview"
+                    allow="autoplay"
+                    allowfullscreen>
+                </iframe>
+
+            </div>
+
+            <a
+                class="watch-button"
+                href="https://drive.google.com/file/d/175zu7leujxT4uy-HDbn-lwieXeu1l2ue/view?usp=sharing"
+                target="_blank"
+            >
+                ▶ Watch Campaign Video
             </a>
 
-        </article>
+        </section>
+
+    </main>
 
 
-    </div>
+    <!-- FOOTER -->
+    <footer>
 
+        <p>
+            Pawsitive Change 🐾
+        </p>
 
-    <div class="hint">
-        📸 Click an animal's picture to open their journey.
-    </div>
+        <p>
+            Feed a stray. Share their story. Give them a chance.
+        </p>
 
-
-    <a class="back" href="index.html">
-        ← Back to Pawsitive Change
-    </a>
-
-</main>
-
-
-<footer>
-
-    <p>Pawsitive Change 🐾</p>
-
-    <p>
-        Feed a stray. Share their story. Give them a chance.
-    </p>
-
-</footer>
+    </footer>
 
 </body>
 </html>
+```
